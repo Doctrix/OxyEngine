@@ -1,0 +1,14 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
+
+# Notre projet est étiqueté libhello
+PROJECT(OxyEngine)
+
+# Settings
+SET(CMAKE_CXX_STANDARD 14)
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/Engine/Source)
+
+LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/Engine/Resources)
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/Engine/ThirdParty)
+
+# Subdirectories
+ADD_SUBDIRECTORY(Game/Source)
