@@ -27,7 +27,7 @@ namespace OxyEngine
 	{
 	public:
 
-		virtual ~I_Renderer() = default;
+		virtual		~I_Renderer() = default;
 		virtual void Initialize(const S_RendererCreateInfo& renderer_create_info) = 0;
 		virtual void Release() = 0;
 
