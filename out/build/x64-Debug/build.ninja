@@ -74,6 +74,22 @@ build Game\Source\CMakeFiles\Game.dir\Main.cpp.obj: CXX_COMPILER__Game ..\..\..\
   TARGET_COMPILE_PDB = Game\Source\CMakeFiles\Game.dir\
   TARGET_PDB = ..\..\..\Engine\Source\Game.pdb
 
+build Game\Source\CMakeFiles\Game.dir\Rendering\Renderer\I_Window.cpp.obj: CXX_COMPILER__Game ..\..\..\Game\Source\Rendering\Renderer\I_Window.cpp || cmake_object_order_depends_target_Game
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1   -std:c++14
+  INCLUDES = -I..\..\..\Engine\ThirdParty -I..\..\..\Game\Header
+  OBJECT_DIR = Game\Source\CMakeFiles\Game.dir
+  OBJECT_FILE_DIR = Game\Source\CMakeFiles\Game.dir\Rendering\Renderer
+  TARGET_COMPILE_PDB = Game\Source\CMakeFiles\Game.dir\
+  TARGET_PDB = ..\..\..\Engine\Source\Game.pdb
+
+build Game\Source\CMakeFiles\Game.dir\Rendering\Renderer\OpenGL33\C_OpenGL33Window.cpp.obj: CXX_COMPILER__Game ..\..\..\Game\Source\Rendering\Renderer\OpenGL33\C_OpenGL33Window.cpp || cmake_object_order_depends_target_Game
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1   -std:c++14
+  INCLUDES = -I..\..\..\Engine\ThirdParty -I..\..\..\Game\Header
+  OBJECT_DIR = Game\Source\CMakeFiles\Game.dir
+  OBJECT_FILE_DIR = Game\Source\CMakeFiles\Game.dir\Rendering\Renderer\OpenGL33
+  TARGET_COMPILE_PDB = Game\Source\CMakeFiles\Game.dir\
+  TARGET_PDB = ..\..\..\Engine\Source\Game.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Game
@@ -82,7 +98,7 @@ build Game\Source\CMakeFiles\Game.dir\Main.cpp.obj: CXX_COMPILER__Game ..\..\..\
 #############################################
 # Link the executable ..\..\..\Engine\Source\Game.exe
 
-build ..\..\..\Engine\Source\Game.exe: CXX_EXECUTABLE_LINKER__Game Game\Source\CMakeFiles\Game.dir\Main.cpp.obj
+build ..\..\..\Engine\Source\Game.exe: CXX_EXECUTABLE_LINKER__Game Game\Source\CMakeFiles\Game.dir\Main.cpp.obj Game\Source\CMakeFiles\Game.dir\Rendering\Renderer\I_Window.cpp.obj Game\Source\CMakeFiles\Game.dir\Rendering\Renderer\OpenGL33\C_OpenGL33Window.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = glfw3.lib  glew32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

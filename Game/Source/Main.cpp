@@ -1,55 +1,37 @@
+/// \file		Main.cpp
+/// \date		15/05/2020
+/// \project	Oxy Engine
+/// \author		DOCtriX
+
+#include <stdexcept>
 #include <iostream>
-
-#include "GLEW/glew.h"
-#include "GLFW/glfw3.h"
-
-void ErrorCallback(int error, const char* description)
-{
-	std::cerr << "Error : " << description << std::endl;
-}
+#include "Rendering/Renderer/OpenGL33/C_OpenGL33Window.hpp"
 
 int main(int argc, char** argv)
 {
-	if (!glfwInit())
+	OxyEngine::C_OpenGL33Window opengl_window;
+	OxyEngine::S_WindowCreateInfo window_create_info{};
+	window_create_info.window_width = 1280;
+	window_create_info.window_height = 720;
+	window_create_info.p_window_title = "Oxy Engine";
+
+	try
 	{
-		std::cerr << "Failed to initialize GLFW." << std::endl;
+		opengl_window.Initialize(window_create_info);
+	}
+	catch (std::runtime_error& error)
+	{
+		std::cerr << "Exception : " << error.what() << std::endl;
 		return -1;
 	}
 
-	glfwSetErrorCallback(ErrorCallback);
-	glfwWindowHint(GLFW_SAMPLES, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-	GLFWwindow* p_window = glfwCreateWindow(1280, 720, "Game", nullptr, nullptr);
-	if (!p_window)
-	{
-		glfwTerminate();
-		std::cerr << "Failed to initialize the window." << std::endl;
-		return -1;
-	}
-
-	glfwMakeContextCurrent(p_window);
-
-	glewExperimental = GL_TRUE;
-	if (glewInit() != GLEW_OK)
-	{
-		std::cerr << "Failed to initialize GLEW." << std::endl;
-		return -1;
-	}
-
-	glfwSetInputMode(p_window, GLFW_STICKY_KEYS, GL_TRUE);
-
+	GLFWwindow* p_window = opengl_window.GetHandle();
 	while (!glfwWindowShouldClose(p_window) &&
 		glfwGetKey(p_window, GLFW_KEY_ESCAPE) != GLFW_PRESS)
 	{
 		glfwSwapBuffers(p_window);
 		glfwPollEvents();
 	}
-
-	glfwTerminate();
 
 	return 0;
 }
