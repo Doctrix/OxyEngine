@@ -1,4 +1,4 @@
-/// \file		COpenGL33Window.cpp
+/// \file		C_OpenGL33Window.cpp
 /// \date		15/05/2020
 /// \project	Oxy Engine
 /// \author		DOCtriX
@@ -22,7 +22,9 @@ namespace OxyEngine
 
 	void C_OpenGL33Window::Initialize(const S_WindowCreateInfo& window_create_info)
 	{
-		std::cout << "Initializing the OpenGL 3.3 window ..." << std::endl;
+		if (m_initialized)
+			Release();
+
 		if (!glfwInit())
 		{
 			throw std::runtime_error("Failed to initialize GLFW.");
@@ -35,19 +37,19 @@ namespace OxyEngine
 		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-		np_window = glfwCreateWindow(
+		mp_window = glfwCreateWindow(
 			window_create_info.window_width,
 			window_create_info.window_height,
 			window_create_info.p_window_title,
 			nullptr, nullptr);
 
-		if (!np_window)
+		if (!mp_window)
 		{
 			glfwTerminate();
 			throw std::runtime_error("Failed to create the window.");
 		}
 
-		glfwMakeContextCurrent(np_window);
+		glfwMakeContextCurrent(mp_window);
 		glewExperimental = GL_TRUE;
 
 		if (glewInit() != GLEW_OK)
@@ -56,15 +58,19 @@ namespace OxyEngine
 			throw std::runtime_error("Failed to initialize GLEW.");
 		}
 
-		glfwSetInputMode(np_window, GLFW_STICKY_KEYS, GL_TRUE);
+		glfwSetInputMode(mp_window, GLFW_STICKY_KEYS, GL_TRUE);
 		std::cout << "OpenGL 3.3 window initialized." << std::endl;
 	}
 
 	void C_OpenGL33Window::Release()
 	{
-		glfwTerminate();
-		np_window = nullptr;
+		if (m_initialized)
+		{
+			glfwTerminate();
+			mp_window = nullptr;
 
-		std::cout << "OpenGL 3.3 window released." << std::endl;
+			m_initialized = false;
+			std::cout << "OpenGL 3.3 window released." << std::endl;
+		}
 	}
 } // namespace

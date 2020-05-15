@@ -1,10 +1,10 @@
-/// \file		COpenGL33Window.hpp
+/// \file		C_OpenGL33Window.hpp
 /// \date		15/05/2020
 /// \project	Oxy Engine
 /// \author		DOCtriX
 
-#ifndef ORDINAL_ENGINE_C_OPEN_GL_33_WINDOW_HPP_
-#define ORDINAL_ENGINE_C_OPEN_GL_33_WINDOW_HPP_
+#ifndef OXY_ENGINE_C_OPEN_GL_33_WINDOW_HPP_
+#define OXY_ENGINE_C_OPEN_GL_33_WINDOW_HPP_
 
 #include "Rendering/Renderer/I_Window.hpp"
 
@@ -21,4 +21,4 @@ namespace OxyEngine
 	};
 } // namespace
 
-#endif // !ORDINAL_ENGINE_C_OPEN_GL_33_WINDOW_HPP_
+#endif // !OXY_ENGINE_C_OPEN_GL_33_WINDOW_HPP_

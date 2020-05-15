@@ -1,4 +1,4 @@
-/// \file		I_Window.hpp
+/// \file		I_Window.cpp
 /// \date		15/05/2020
 /// \project	Oxy Engine
 /// \author		DOCtriX
@@ -9,6 +9,6 @@ namespace OxyEngine
 {
 	GLFWwindow* I_Window::GetHandle()
 	{
-		return np_window;
+		return mp_window;
 	}
 } //!namespace

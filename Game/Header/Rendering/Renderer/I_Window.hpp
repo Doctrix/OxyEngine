@@ -3,8 +3,8 @@
 /// \project	Oxy Engine
 /// \author		DOCtriX
 
-#ifndef ORDINAL_ENGINE_I_WINDOW_HPP_
-#define ORDINAL_ENGINE_I_WINDOW_HPP_
+#ifndef OXY_ENGINE_I_WINDOW_HPP_
+#define OXY_ENGINE_I_WINDOW_HPP_
 
 #include "GLEW/glew.h"
 #include "GLFW/glfw3.h"
@@ -30,8 +30,9 @@ namespace OxyEngine
 
 	protected:
 
-		GLFWwindow* np_window = nullptr;
+		bool	m_initialized = false;
+		GLFWwindow* mp_window = nullptr;
 	};
 } // !namespace
 
-#endif // !ORDINAL_ENGINE_I_WINDOW_HPP_
+#endif // !OXY_ENGINE_I_WINDOW_HPP_
