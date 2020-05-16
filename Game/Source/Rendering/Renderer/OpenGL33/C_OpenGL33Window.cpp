@@ -30,6 +30,7 @@ namespace OxyEngine
 			throw std::runtime_error("Failed to initialize GLFW.");
 		}
 
+		m_initialized = true;
 		glfwSetErrorCallback(ErrorCallback);
 		glfwWindowHint(GLFW_SAMPLES, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

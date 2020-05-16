@@ -4,12 +4,11 @@
 /// \author		DOCtriX
 
 #include <iostream>
-
 #include "Rendering/Renderer/OpenGL33/C_OpenGL33Renderer.hpp"
 
 namespace OxyEngine
 {
-	C_OpenGL33Renderer::~IRenderer()
+	C_OpenGL33Renderer::~C_OpenGL33Renderer()
 	{
 		Release(); // RAII
 	}
@@ -20,7 +19,7 @@ namespace OxyEngine
 			Release();
 
 		m_initialized = true;
-		m_window.Initialize(*renderer_create_info.p_window_create_info);
+		m_window.Initialize(renderer_create_info.p_window_create_info);
 		mp_window = &m_window;
 
 		std::cout << "OpenGL 3.3 renderer initialized." << std::endl;
@@ -32,7 +31,6 @@ namespace OxyEngine
 		{
 			m_window.Release();
 			mp_window = nullptr;
-
 			m_initialized = false;
 			std::cout << "OpenGL 3.3 renderer released." << std::endl;
 		}

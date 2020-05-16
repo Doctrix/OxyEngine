@@ -19,8 +19,8 @@ namespace OxyEngine
 
 	struct S_RendererCreateInfo
 	{
-		E_RendererType e_renderer_type;
-		S_WindowCreateInfo p_window_create_info;
+		E_RendererType		e_renderer_type;
+		S_WindowCreateInfo	p_window_create_info;
 	};
 
 	class I_Renderer
@@ -35,9 +35,9 @@ namespace OxyEngine
 
 	protected:
 
-		bool m_initialized = false;
+		bool	m_initialized = false;
 		I_Window* mp_window = nullptr;
 	};
-}
+} // namespace
 
 #endif // !OXY_ENGINE_I_RENDERER_HPP_
